@@ -1,13 +1,13 @@
 ---
 - name: Get Top 5 CPU processes (Windows)
- hosts: all
- tasks:
-   - name: Fetch top 5 CPU processes
-     win_shell: |
-       Get-Process |
-       Sort-Object CPU -Descending |
-       Select-Object -First 5 Name, CPU
-     register: cpu_output
-   - name: Display result
-     debug:
-       msg: "{{ cpu_output.stdout_lines }}"
+  hosts: all
+  tasks:
+    - name: Fetch top 5 CPU processes
+      win_shell: |
+        Get-Process |
+        Sort-Object CPU -Descending |
+        Select-Object -First 5 Name, CPU
+      register: cpu_output
+    - name: Display result
+      debug:
+        msg: "{{ cpu_output.stdout_lines }}"
