@@ -1,5 +1,5 @@
 ---
-- name: Get Top 5 CPU processes (Windows)
+-name: Get Top 5 CPU processes (Windows)
  hosts: all
  tasks:
    - name: Fetch top 5 CPU processes
