@@ -1,0 +1,25 @@
+---
+- name: Ensure service is running (Windows)
+  hosts: all
+  vars:
+     service_name: Spooler   # 🔁 Change this to your service
+  tasks:
+     - name: Check service status
+       win_service:
+         name: "{{ service_name }}"
+       register: service_status
+     - name: Print initial status
+       debug:
+         msg: "Initial status: {{ service_status.state }}"
+     - name: Start service if stopped
+       win_service:
+         name: "{{ service_name }}"
+         state: started
+       when: service_status.state != "running"
+     - name: Re-check service status
+       win_service:
+         name: "{{ service_name }}"
+       register: service_status_after
+     - name: Print final status
+       debug:
+         msg: "Final status: {{ service_status_after.state }}"
