@@ -1,0 +1,12 @@
+---
+- hosts: webservers
+ become: yes
+ tasks:
+   - name: Copy website
+     copy:
+       src: index.html
+       dest: /var/www/html/index.html
+   - name: Restart nginx
+     service:
+       name: nginx
+       state: restarted
