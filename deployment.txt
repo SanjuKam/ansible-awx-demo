@@ -1,0 +1,2 @@
+CI/CD Deployment Successful
+Triggered from AWX
