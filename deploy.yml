@@ -1,13 +1,11 @@
----
 - hosts: all
-  become: yes
-  tasks:
-   - name: Create deployment directory
-     file:
-       path: /tmp/cicd-demo
-       state: directory
-   - name: Copy latest deployment file
+ become: yes
+ vars:
+   ansible_user: Zeta_82
+   ansible_password: Zensar@7654321
+   ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+ tasks:
+   - name: Copy deployment file
      copy:
        src: deployment.txt
        dest: /tmp/cicd-demo/deployment.txt
-       force: yes
