@@ -1,5 +1,4 @@
 - hosts: all
-  become: yes
   vars:
    ansible_user: Zeta_82
    ansible_password: Zensar@7654321
