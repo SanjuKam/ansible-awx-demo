@@ -1,2 +1,2 @@
 CI/CD Deployment Successful
-Triggered from AWX
+Triggered from Jenkins
