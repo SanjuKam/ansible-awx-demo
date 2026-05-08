@@ -1,0 +1,2 @@
+[linuxservers]
+172.17.7.32 ansible_user=Zeta_82
