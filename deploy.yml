@@ -6,12 +6,8 @@
      file:
        path: /tmp/cicd-demo
        state: directory
-   - name: Copy deployment file
+   - name: Copy latest deployment file
      copy:
        src: deployment.txt
        dest: /tmp/cicd-demo/deployment.txt
-   - name: Verify deployment
-     shell: cat /tmp/cicd-demo/deployment.txt
-     register: output
-   - debug:
-       var: output.stdout
+       force: yes
