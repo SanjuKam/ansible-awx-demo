@@ -1,7 +1,7 @@
 ---
 - hosts: linuxservers
- become: yes
- tasks:
+  become: yes
+  tasks:
    - name: Create deployment directory
      file:
        path: /tmp/cicd-demo
