@@ -1,12 +1,17 @@
 ---
-- hosts: webservers
+- hosts: linuxservers
  become: yes
  tasks:
-   - name: Copy website
+   - name: Create deployment directory
+     file:
+       path: /tmp/cicd-demo
+       state: directory
+   - name: Copy deployment file
      copy:
-       src: index.html
-       dest: /var/www/html/index.html
-   - name: Restart nginx
-     service:
-       name: nginx
-       state: restarted
+       src: deployment.txt
+       dest: /tmp/cicd-demo/deployment.txt
+   - name: Verify deployment
+     shell: cat /tmp/cicd-demo/deployment.txt
+     register: output
+   - debug:
+       var: output.stdout
