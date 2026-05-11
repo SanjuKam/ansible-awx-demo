@@ -11,9 +11,13 @@ pipeline {
            steps {
                sh '''
                cd ${WORKSPACE}
-               export ANSIBLE_HOST_KEY_CHECKING=False
                ansible-playbook -i inventory deploy.yml
                '''
+           }
+       }
+       stage('Simulate Failure') {
+           steps {
+               sh 'exit 1'
            }
        }
    }
