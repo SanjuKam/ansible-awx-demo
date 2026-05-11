@@ -2,20 +2,15 @@
 - hosts: all
   become: yes
   tasks:
-   - name: Install nginx
-     yum:
-       name: nginx
-       state: present
-   - name: Start nginx
-     service:
-       name: nginx
-       state: started
-       enabled: yes
-   - name: Deploy website
+   - name: Create demo folder
+     file:
+       path: /tmp/cicd-demo
+       state: directory
+       mode: '0755'
+   - name: Copy website
      copy:
        src: index.html
-       dest: /usr/share/nginx/html/index.html
-   - name: Restart nginx
-     service:
-       name: nginx
-       state: restarted
+       dest: /tmp/cicd-demo/index.html
+   - name: Start Python web server
+     shell: |
+       nohup python3 -m http.server 8080 --directory /tmp/cicd-demo > /tmp/web.log 2>&1 &
