@@ -1,2 +1,2 @@
-[linuxservers]
-172.17.7.32 ansible_user=Zeta_82
+[web]
+172.17.7.32 ansible_user=Zeta_82 ansible_password=Zensar@7654321 ansible_become_password=Zensar@7654321
