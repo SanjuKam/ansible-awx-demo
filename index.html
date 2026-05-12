@@ -3,113 +3,187 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Self-Healing CI/CD Demo</title>
+<title>Vinci Automation Platform</title>
 <style>
-       *{
-           margin:0;
-           padding:0;
-           box-sizing:border-box;
-           font-family: Arial, sans-serif;
-       }
-       body{
-           height:100vh;
-           background: linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
-           display:flex;
-           justify-content:center;
-           align-items:center;
-           color:white;
-       }
-       .container{
-           width:80%;
-           max-width:900px;
-           background: rgba(255,255,255,0.08);
-           backdrop-filter: blur(10px);
-           border-radius:20px;
-           padding:40px;
-           text-align:center;
-           box-shadow:0 8px 30px rgba(0,0,0,0.3);
-       }
-       h1{
-           font-size:48px;
-           margin-bottom:20px;
-           color:#ffffff;
-       }
-       p{
-           font-size:20px;
-           margin-bottom:30px;
-           color:#dbeafe;
-       }
-       .tech-stack{
-           display:flex;
-           justify-content:center;
-           flex-wrap:wrap;
-           gap:15px;
-           margin-top:20px;
-       }
-       .card{
-           background:white;
-           color:#111827;
-           padding:15px 25px;
-           border-radius:12px;
-           font-weight:bold;
-           min-width:150px;
-           transition:0.3s;
-       }
-       .card:hover{
-           transform:scale(1.05);
-           background:#2563eb;
-           color:white;
-       }
-       .status{
-           margin-top:35px;
-           padding:15px;
-           background:#16a34a;
-           border-radius:10px;
-           font-size:20px;
-           font-weight:bold;
-       }
-       .version{
-           margin-top:20px;
-           display:inline-block;
-           padding:10px 20px;
-           background:#111827;
-           border:1px solid #60a5fa;
-           border-radius:10px;
-           font-size:18px;
-           font-weight:bold;
-           color:#93c5fd;
-       }
-       footer{
-           margin-top:30px;
-           font-size:14px;
-           color:#cbd5e1;
-       }
+*{
+   margin:0;
+   padding:0;
+   box-sizing:border-box;
+   font-family:Arial, sans-serif;
+}
+body{
+   background:#f4f7fb;
+   color:#1e293b;
+}
+/* Header */
+header{
+   background:white;
+   padding:18px 60px;
+   display:flex;
+   justify-content:space-between;
+   align-items:center;
+   box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+.logo{
+   font-size:28px;
+   font-weight:bold;
+   color:#2563eb;
+}
+nav a{
+   text-decoration:none;
+   margin-left:25px;
+   color:#334155;
+   font-weight:600;
+}
+nav a:hover{
+   color:#2563eb;
+}
+/* Hero Section */
+.hero{
+   height:500px;
+   background:linear-gradient(rgba(15,23,42,0.75),rgba(15,23,42,0.75)),
+   url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1920&auto=format&fit=crop');
+   background-size:cover;
+   background-position:center;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   text-align:center;
+   color:white;
+   padding:20px;
+}
+.hero-content h1{
+   font-size:58px;
+   margin-bottom:20px;
+}
+.hero-content p{
+   font-size:22px;
+   margin-bottom:30px;
+   color:#dbeafe;
+}
+.btn{
+   background:#2563eb;
+   color:white;
+   padding:15px 35px;
+   border-radius:8px;
+   text-decoration:none;
+   font-weight:bold;
+   transition:0.3s;
+}
+.btn:hover{
+   background:#1d4ed8;
+}
+/* Features */
+.features{
+   width:90%;
+   margin:auto;
+   margin-top:70px;
+   display:grid;
+   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+   gap:25px;
+}
+.feature-card{
+   background:white;
+   padding:30px;
+   border-radius:15px;
+   box-shadow:0 5px 20px rgba(0,0,0,0.08);
+   transition:0.3s;
+}
+.feature-card:hover{
+   transform:translateY(-8px);
+}
+.feature-card h2{
+   margin-bottom:15px;
+   color:#2563eb;
+}
+/* Release Banner */
+.release{
+   width:90%;
+   margin:50px auto;
+   background:#1e293b;
+   color:white;
+   padding:25px;
+   border-radius:15px;
+   display:flex;
+   justify-content:space-between;
+   align-items:center;
+   flex-wrap:wrap;
+}
+.release h2{
+   margin-bottom:10px;
+}
+.version{
+   background:#2563eb;
+   padding:12px 25px;
+   border-radius:10px;
+   font-size:20px;
+   font-weight:bold;
+}
+/* Footer */
+footer{
+   margin-top:60px;
+   background:#0f172a;
+   color:#cbd5e1;
+   text-align:center;
+   padding:25px;
+}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>🚀 Self-Healing CI/CD Pipeline</h1>
+<header>
+<div class="logo">
+       Vinci Automation
+</div>
+<nav>
+<a href="#">Home</a>
+<a href="#">Services</a>
+<a href="#">Automation</a>
+<a href="#">Monitoring</a>
+<a href="#">Contact</a>
+</nav>
+</header>
+<section class="hero">
+<div class="hero-content">
+<h1>Enterprise Automation Platform</h1>
 <p>
-       Intelligent Automated Deployment & Recovery Platform
+           Intelligent CI/CD • Infrastructure Automation • Self-Healing Operations
 </p>
-<div class="tech-stack">
-<div class="card">Jenkins</div>
-<div class="card">Ansible</div>
-<div class="card">Datadog</div>
-<div class="card">ServiceNow</div>
-<div class="card">AWX</div>
-<div class="card">Linux</div>
+<a href="#" class="btn">Explore Platform</a>
 </div>
-<div class="status">
-       ✅ Application Status : HEALTHY
+</section>
+<section class="features">
+<div class="feature-card">
+<h2>⚙ CI/CD Automation</h2>
+<p>
+           Automated deployment pipelines powered by Jenkins and Ansible.
+</p>
 </div>
-<!-- VERSION SECTION -->
+<div class="feature-card">
+<h2>📊 Real-Time Monitoring</h2>
+<p>
+           Infrastructure and application observability with Datadog integration.
+</p>
+</div>
+<div class="feature-card">
+<h2>🛠 Self-Healing</h2>
+<p>
+           Automated incident remediation and recovery workflows.
+</p>
+</div>
+</section>
+<!-- VERSION / RELEASE SECTION -->
+<section class="release">
+<div>
+<h2>Current Enterprise Release</h2>
+<p>Production deployment successfully completed.</p>
+</div>
+<!-- CHANGE THIS DURING DEMO -->
 <div class="version">
-       🔖 Release Version : v1.0.0
+       Version v1.0.0
 </div>
+</section>
 <footer>
-       Developed for Automation Demo | Self-Healing Infrastructure Monitoring
+   © 2026 Vinci Automation Platform | Enterprise DevOps Solutions
 </footer>
-</div>
 </body>
 </html>
