@@ -16,5 +16,19 @@ pipeline {
                '''
            }
        }
+       stage('Validate Website') {
+           steps {
+               sh '''
+               URL="http://172.17.7.32:8080"
+               STATUS=$(curl -o /dev/null -s -w "%{http_code}" $URL)
+               if [ "$STATUS" -ne 200 ]; then
+                   echo "Website is DOWN"
+                   exit 1
+               else
+                   echo "Website is UP"
+               fi
+               '''
+           }
+       }
    }
 }
